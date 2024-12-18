@@ -135,7 +135,7 @@ const ProgressTracker = () => {
                   }
                 }}
               >
-                <LineChart data={weightData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                <LineChart data={weightData} margin={{ top: 10, right: 10, bottom: 10, left: 10 }} height={80}>
                   <CartesianGrid strokeDasharray="3 3" horizontal vertical />
                   <XAxis 
                     dataKey="week"
