@@ -7,11 +7,9 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <img
-              src="https://shellyheinrichs.com/wp-content/uploads/2022/09/Shelly-Heinrichs-L-Black-512-%C3%97-512-px.png"
-              alt="Shelly Heinrichs Logo"
-              className="h-12 mb-4"
-            />
+            <span className="text-2xl font-['Dancing_Script'] text-foreground block mb-4">
+              Shelly Heinrichs Coaching
+            </span>
             <p className="text-muted-foreground">
               Empowering women to achieve sustainable weight loss through blood sugar balance and mindset transformation.
             </p>
