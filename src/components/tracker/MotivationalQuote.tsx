@@ -22,9 +22,9 @@ export const MotivationalQuote = () => {
   }, []);
 
   return (
-    <Card>
-      <CardContent className="py-6">
-        <p className="text-lg text-center italic text-muted-foreground">"{currentQuote}"</p>
+    <Card className="bg-primary/5">
+      <CardContent className="py-8">
+        <p className="text-2xl text-center italic text-primary font-semibold">"{currentQuote}"</p>
       </CardContent>
     </Card>
   );

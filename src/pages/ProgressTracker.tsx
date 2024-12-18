@@ -123,7 +123,7 @@ const ProgressTracker = () => {
             <CardTitle>Weight Progress Over Time</CardTitle>
           </CardHeader>
           <CardContent className="relative">
-            <div className="w-full h-[300px] overflow-hidden">
+            <div className="w-full h-[300px]">
               <ChartContainer
                 config={{
                   weight: {
@@ -135,12 +135,31 @@ const ProgressTracker = () => {
                 }}
               >
                 <LineChart data={weightData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="week" />
-                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" horizontal vertical />
+                  <XAxis 
+                    dataKey="week"
+                    tick={{ fill: 'hsl(var(--foreground))' }}
+                    tickLine={{ stroke: 'hsl(var(--border))' }}
+                  />
+                  <YAxis 
+                    domain={[150, 200]}
+                    ticks={[150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200]}
+                    tick={{ fill: 'hsl(var(--foreground))' }}
+                    tickLine={{ stroke: 'hsl(var(--border))' }}
+                  />
                   <ChartTooltip content={<ChartTooltipContent />} />
-                  <ReferenceLine y={startWeight} label="Start" stroke="gray" />
-                  <ReferenceLine y={goalWeight} label="Goal" stroke="green" />
+                  <ReferenceLine 
+                    y={startWeight} 
+                    label="Start" 
+                    stroke="hsl(var(--muted-foreground))" 
+                    strokeDasharray="3 3" 
+                  />
+                  <ReferenceLine 
+                    y={goalWeight} 
+                    label="Goal" 
+                    stroke="hsl(var(--primary))" 
+                    strokeDasharray="3 3" 
+                  />
                   <Line
                     type="monotone"
                     dataKey="weight"

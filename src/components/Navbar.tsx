@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { User } from "lucide-react";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
   return (
@@ -10,13 +12,17 @@ export const Navbar = () => {
               Shelly Heinrichs Coaching
             </span>
           </Link>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <Link to="/" className="text-foreground hover:text-primary transition-colors">
               Home
             </Link>
             <Link to="/progress" className="text-foreground hover:text-primary transition-colors">
-              Progress Tracker
+              Progress
             </Link>
+            <Button variant="outline" className="gap-2">
+              <User className="h-4 w-4" />
+              Login
+            </Button>
           </div>
         </div>
       </div>
