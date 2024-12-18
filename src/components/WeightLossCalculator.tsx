@@ -127,7 +127,10 @@ export const WeightLossCalculator = () => {
               </p>
             </div>
 
-            <Button className="w-full" onClick={() => window.location.href = "/contact"}>
+            <Button 
+              className="w-full" 
+              onClick={() => window.open("https://calendly.com/clearcareer/discovery-call", "_blank")}
+            >
               Apply to Join Today!
             </Button>
           </div>
