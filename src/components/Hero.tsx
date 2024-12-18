@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 export const Hero = () => {
   return (
     <div className="relative overflow-hidden">
-      <div className="relative px-8 lg:px-12">
+      <div className="relative px-4 lg:px-8 flex justify-end">
         <div className="text-left max-w-xl">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
             <span className="block">Finding Freedom From</span>

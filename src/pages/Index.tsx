@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <div className="min-h-screen flex flex-col">
-        <div className="flex-1 grid lg:grid-cols-2 gap-8 items-center py-12">
+        <div className="flex-1 container mx-auto grid lg:grid-cols-2 gap-8 items-center py-12">
           <Hero />
           <div className="px-4 sm:px-6 lg:px-8">
             <WeightLossCalculator />
