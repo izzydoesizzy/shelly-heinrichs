@@ -97,7 +97,7 @@ export const WeightLossCalculator = () => {
           
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Achieve your goal - Join our Group Coaching Program</h3>
+              <h3 className="text-xl font-semibold">Join Our Program and Start Seeing Real Results</h3>
               <div className="grid gap-3">
                 {programFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
