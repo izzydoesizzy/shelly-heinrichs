@@ -48,9 +48,9 @@ export const WeightLossCalculator = () => {
     <>
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle>Weight Loss Timeline Calculator</CardTitle>
+          <CardTitle>Get Your Personalized Plan</CardTitle>
           <CardDescription>
-            Calculate how long it might take to reach your goal weight in a healthy, sustainable way.
+            Discover how quickly you could reach your goals with our proven method. Take the first step towards lasting transformation.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -76,7 +76,7 @@ export const WeightLossCalculator = () => {
             className="w-full"
             onClick={calculateTimeline}
           >
-            Calculate Timeline
+            Get My Timeline
           </Button>
           {result && (
             <div className="mt-4 p-4 bg-accent rounded-lg text-accent-foreground">
