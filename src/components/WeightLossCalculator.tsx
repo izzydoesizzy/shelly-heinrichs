@@ -6,7 +6,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
-import { Link } from "react-router-dom";
 
 export const WeightLossCalculator = () => {
   const [currentWeight, setCurrentWeight] = useState("");
@@ -128,16 +127,9 @@ export const WeightLossCalculator = () => {
               </p>
             </div>
 
-            <div className="flex gap-4">
-              <Button className="w-full" onClick={() => window.location.href = "/contact"}>
-                Apply to Join Today!
-              </Button>
-              <Link to="/progress" className="w-full">
-                <Button variant="outline" className="w-full">
-                  View Progress Tracker Demo
-                </Button>
-              </Link>
-            </div>
+            <Button className="w-full" onClick={() => window.location.href = "/contact"}>
+              Apply to Join Today!
+            </Button>
           </div>
         </DialogContent>
       </Dialog>
