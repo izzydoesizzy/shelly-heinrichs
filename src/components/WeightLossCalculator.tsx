@@ -76,7 +76,7 @@ export const WeightLossCalculator = () => {
             className="w-full"
             onClick={calculateTimeline}
           >
-            Get My Timeline
+            Get my Action Plan
           </Button>
           {result && (
             <div className="mt-4 p-4 bg-accent rounded-lg text-accent-foreground">
