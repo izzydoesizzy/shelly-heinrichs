@@ -1,11 +1,14 @@
 import { Hero } from "@/components/Hero";
 import { Benefits } from "@/components/Benefits";
 import { WeightLossCalculator } from "@/components/WeightLossCalculator";
+import { AboutShelly } from "@/components/AboutShelly";
+import { Testimonials } from "@/components/Testimonials";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Hero />
+      <AboutShelly />
       <div className="py-12 bg-gradient-to-b from-background to-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -20,6 +23,7 @@ const Index = () => {
         </div>
       </div>
       <Benefits />
+      <Testimonials />
     </div>
   );
 };
