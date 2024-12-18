@@ -9,7 +9,7 @@ export const AboutShelly = () => {
             <div className="relative lg:h-full">
               <img
                 className="relative rounded-lg shadow-lg object-cover"
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+                src="https://shellyheinrichs.com/wp-content/uploads/2023/01/Shelly-Blank-Circle.png.webp"
                 alt="Shelly Heinrichs"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-lg" />
