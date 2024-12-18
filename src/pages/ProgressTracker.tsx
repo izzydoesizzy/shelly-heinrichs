@@ -124,7 +124,7 @@ const ProgressTracker = () => {
             <CardTitle>Weight Progress Over Time</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
-            <AspectRatio ratio={2/1} className="h-[150px] mb-4">
+            <AspectRatio ratio={2/1} className="h-[100px] mb-4">
               <ChartContainer
                 config={{
                   weight: {
@@ -143,8 +143,8 @@ const ProgressTracker = () => {
                     tickLine={{ stroke: 'hsl(var(--border))' }}
                   />
                   <YAxis 
-                    domain={[150, 200]}
-                    ticks={[150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200]}
+                    domain={[160, 190]}
+                    ticks={[160, 165, 170, 175, 180, 185, 190]}
                     tick={{ fill: 'hsl(var(--foreground))' }}
                     tickLine={{ stroke: 'hsl(var(--border))' }}
                   />
