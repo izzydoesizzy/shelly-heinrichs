@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { CheckCircle2 } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 
@@ -86,9 +87,12 @@ export const WeightLossCalculator = () => {
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold mb-4">Your Personalized Action Plan</DialogTitle>
             {result && (
-              <DialogDescription className="text-lg font-medium text-foreground mb-6">
-                {result}
-              </DialogDescription>
+              <Alert className="mb-6">
+                <AlertCircle className="h-5 w-5" />
+                <AlertDescription className="text-lg font-medium ml-2">
+                  {result}
+                </AlertDescription>
+              </Alert>
             )}
           </DialogHeader>
           
