@@ -3,10 +3,16 @@ import { Benefits } from "@/components/Benefits";
 import { WeightLossCalculator } from "@/components/WeightLossCalculator";
 import { AboutShelly } from "@/components/AboutShelly";
 import { Testimonials } from "@/components/Testimonials";
+import { Navbar } from "@/components/Navbar";
+import { ProgramDetails } from "@/components/ProgramDetails";
+import { Comparison } from "@/components/Comparison";
+import { CallToAction } from "@/components/CallToAction";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Navbar />
       <div className="min-h-screen flex flex-col">
         <div className="flex-1 container mx-auto grid lg:grid-cols-2 gap-8 items-center py-12">
           <Hero />
@@ -33,9 +39,13 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <ProgramDetails />
+      <Comparison />
       <Testimonials />
       <AboutShelly />
       <Benefits />
+      <CallToAction />
+      <Footer />
     </div>
   );
 };
