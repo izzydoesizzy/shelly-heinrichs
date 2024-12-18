@@ -86,7 +86,7 @@ export const WeightLossCalculator = () => {
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold mb-4">Your Personalized Action Plan</DialogTitle>
             {result && (
-              <Alert className="mb-6">
+              <Alert className="mb-6 bg-[#F2FCE2]">
                 <AlertCircle className="h-5 w-5" />
                 <AlertDescription className="text-lg font-medium ml-2">
                   {result}
