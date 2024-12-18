@@ -107,8 +107,8 @@ const ProgressTracker = () => {
           <CardHeader>
             <CardTitle>Weight Progress Over Time</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="h-[300px]">
+          <CardContent className="relative">
+            <div className="w-full h-[300px] overflow-hidden">
               <ChartContainer
                 config={{
                   weight: {
