@@ -78,21 +78,18 @@ export const WeightLossCalculator = () => {
           >
             Get my Action Plan
           </Button>
-          {result && (
-            <div className="mt-4 p-4 bg-accent rounded-lg text-accent-foreground">
-              {result}
-            </div>
-          )}
         </CardContent>
       </Card>
 
       <Dialog open={showProgram} onOpenChange={setShowProgram}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold mb-4">Your Personalized Group Coaching Program</DialogTitle>
-            <DialogDescription>
-              Based on your goals, here's our comprehensive program designed to help you succeed:
-            </DialogDescription>
+            <DialogTitle className="text-2xl font-bold mb-4">Your Personalized Action Plan</DialogTitle>
+            {result && (
+              <DialogDescription className="text-lg font-medium text-foreground mb-6">
+                {result}
+              </DialogDescription>
+            )}
           </DialogHeader>
           
           <div className="space-y-6">
@@ -113,12 +110,12 @@ export const WeightLossCalculator = () => {
               <div className="space-y-3">
                 <div className="p-4 bg-accent rounded-lg">
                   <p className="font-medium">Full Payment</p>
-                  <p className="text-2xl font-bold">$750</p>
+                  <p className="text-2xl font-bold">$750 + HST</p>
                   <p className="text-sm text-muted-foreground">One-time payment</p>
                 </div>
                 <div className="p-4 bg-accent rounded-lg">
                   <p className="font-medium">Payment Plan</p>
-                  <p className="text-2xl font-bold">$250/month</p>
+                  <p className="text-2xl font-bold">$142/month</p>
                   <p className="text-sm text-muted-foreground">For 6 months</p>
                 </div>
               </div>
@@ -129,7 +126,7 @@ export const WeightLossCalculator = () => {
 
             <div className="flex gap-4">
               <Button className="w-full" onClick={() => window.location.href = "/contact"}>
-                Contact Us
+                Apply to Join Today!
               </Button>
               <Link to="/progress" className="w-full">
                 <Button variant="outline" className="w-full">
