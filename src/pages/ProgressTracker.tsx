@@ -122,8 +122,8 @@ const ProgressTracker = () => {
           <CardHeader>
             <CardTitle>Weight Progress Over Time</CardTitle>
           </CardHeader>
-          <CardContent className="relative">
-            <div className="w-full h-[300px]">
+          <CardContent>
+            <div className="aspect-[2/1] w-full max-h-[400px]">
               <ChartContainer
                 config={{
                   weight: {
@@ -134,7 +134,7 @@ const ProgressTracker = () => {
                   }
                 }}
               >
-                <LineChart data={weightData}>
+                <LineChart data={weightData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                   <CartesianGrid strokeDasharray="3 3" horizontal vertical />
                   <XAxis 
                     dataKey="week"
