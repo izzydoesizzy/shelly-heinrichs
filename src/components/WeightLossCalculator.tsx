@@ -50,7 +50,7 @@ export const WeightLossCalculator = () => {
         <CardHeader>
           <CardTitle>Build Your Action Plan</CardTitle>
           <CardDescription>
-            Discover how quickly you could reach your goals with our proven method. Take the first step towards lasting transformation.
+            See how quickly you could reach your goals. Take the first step towards lasting transformation.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
