@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 export const WeightLossCalculator = () => {
   const [currentWeight, setCurrentWeight] = useState("");
@@ -130,13 +131,11 @@ export const WeightLossCalculator = () => {
               <Button className="w-full" onClick={() => window.location.href = "/contact"}>
                 Contact Us
               </Button>
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => setShowProgram(false)}
-              >
-                Close
-              </Button>
+              <Link to="/progress" className="w-full">
+                <Button variant="outline" className="w-full">
+                  View Progress Tracker Demo
+                </Button>
+              </Link>
             </div>
           </div>
         </DialogContent>
