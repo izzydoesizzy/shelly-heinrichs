@@ -123,8 +123,8 @@ const ProgressTracker = () => {
           <CardHeader>
             <CardTitle>Weight Progress Over Time</CardTitle>
           </CardHeader>
-          <CardContent>
-            <AspectRatio ratio={2/1} className="h-[300px]">
+          <CardContent className="p-6">
+            <AspectRatio ratio={2/1} className="h-[150px] mb-4">
               <ChartContainer
                 config={{
                   weight: {
