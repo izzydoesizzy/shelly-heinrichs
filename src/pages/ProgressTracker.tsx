@@ -9,6 +9,7 @@ import { PlusCircle } from "lucide-react";
 import { ProfileNav } from "@/components/tracker/ProfileNav";
 import { MotivationalQuote } from "@/components/tracker/MotivationalQuote";
 import { GoalMetrics } from "@/components/tracker/GoalMetrics";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const ProgressTracker = () => {
   const [progressData, setProgressData] = useState([
@@ -123,7 +124,7 @@ const ProgressTracker = () => {
             <CardTitle>Weight Progress Over Time</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="aspect-[2/1] w-full max-h-[400px]">
+            <AspectRatio ratio={2/1} className="h-[300px]">
               <ChartContainer
                 config={{
                   weight: {
@@ -169,7 +170,7 @@ const ProgressTracker = () => {
                   />
                 </LineChart>
               </ChartContainer>
-            </div>
+            </AspectRatio>
           </CardContent>
         </Card>
 
