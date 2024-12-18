@@ -48,7 +48,7 @@ export const WeightLossCalculator = () => {
     <>
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle>Get Your Personalized Plan</CardTitle>
+          <CardTitle>Build Your Action Plan</CardTitle>
           <CardDescription>
             Discover how quickly you could reach your goals with our proven method. Take the first step towards lasting transformation.
           </CardDescription>
