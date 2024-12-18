@@ -4,11 +4,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { Line, LineChart, XAxis, YAxis } from "recharts";
+import { Line, LineChart, XAxis, YAxis, ReferenceLine, CartesianGrid } from "recharts";
 import { PlusCircle } from "lucide-react";
+import { ProfileNav } from "@/components/tracker/ProfileNav";
+import { MotivationalQuote } from "@/components/tracker/MotivationalQuote";
+import { GoalMetrics } from "@/components/tracker/GoalMetrics";
 
 const ProgressTracker = () => {
-  // Sample data - in a real app this would come from a database
   const [progressData, setProgressData] = useState([
     {
       name: "Sarah Johnson",
@@ -67,7 +69,6 @@ const ProgressTracker = () => {
     wins: ""
   });
 
-  // Sample weight tracking data for the chart
   const weightData = [
     { week: "Week 1", weight: 185 },
     { week: "Week 2", weight: 183 },
@@ -76,6 +77,10 @@ const ProgressTracker = () => {
     { week: "Week 5", weight: 178 },
     { week: "Week 6", weight: 176 }
   ];
+
+  const startWeight = 185;
+  const currentWeight = 176;
+  const goalWeight = 165;
 
   const handleAddEntry = () => {
     if (newEntry.name && newEntry.currentWeight) {
@@ -92,7 +97,6 @@ const ProgressTracker = () => {
     }
   };
 
-  // Sort members by weight loss for leaderboard
   const leaderboardData = [...progressData].sort((a, b) => {
     const aLoss = parseInt(a.weekOneWeight) - parseInt(a.currentWeight);
     const bLoss = parseInt(b.weekOneWeight) - parseInt(b.currentWeight);
@@ -100,9 +104,20 @@ const ProgressTracker = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        {/* Weight Progress Chart */}
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+      <ProfileNav />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+        <h1 className="text-2xl font-bold text-primary">Let's GO Maria! 💪</h1>
+        
+        <MotivationalQuote />
+        
+        <GoalMetrics 
+          startWeight={startWeight}
+          currentWeight={currentWeight}
+          goalWeight={goalWeight}
+        />
+
         <Card>
           <CardHeader>
             <CardTitle>Weight Progress Over Time</CardTitle>
@@ -120,9 +135,12 @@ const ProgressTracker = () => {
                 }}
               >
                 <LineChart data={weightData}>
+                  <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="week" />
                   <YAxis />
                   <ChartTooltip content={<ChartTooltipContent />} />
+                  <ReferenceLine y={startWeight} label="Start" stroke="gray" />
+                  <ReferenceLine y={goalWeight} label="Goal" stroke="green" />
                   <Line
                     type="monotone"
                     dataKey="weight"
@@ -136,7 +154,6 @@ const ProgressTracker = () => {
           </CardContent>
         </Card>
 
-        {/* Leaderboard */}
         <Card>
           <CardHeader>
             <CardTitle>Member Leaderboard</CardTitle>
@@ -166,7 +183,6 @@ const ProgressTracker = () => {
           </CardContent>
         </Card>
 
-        {/* Progress Table */}
         <Card>
           <CardHeader>
             <CardTitle className="flex justify-between items-center">
@@ -178,7 +194,6 @@ const ProgressTracker = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {/* New Entry Form */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <Input
                 placeholder="Name"
