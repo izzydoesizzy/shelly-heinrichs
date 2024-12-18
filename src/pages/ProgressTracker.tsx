@@ -1,30 +1,202 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { Line, LineChart, XAxis, YAxis } from "recharts";
+import { PlusCircle } from "lucide-react";
 
 const ProgressTracker = () => {
-  // This would typically come from a database
-  const progressData = [
+  // Sample data - in a real app this would come from a database
+  const [progressData, setProgressData] = useState([
     {
-      name: "Example Name",
-      weekOneWeight: "200 lbs",
-      currentWeight: "195 lbs",
-      measurementChange: "-2 inches",
+      name: "Sarah Johnson",
+      weekOneWeight: "185 lbs",
+      currentWeight: "178 lbs",
+      measurementChange: "-3 inches",
+      energyLevel: "9",
+      weeklyGoal: "30 min daily walks",
+      wins: "Completed all planned workouts!"
+    },
+    {
+      name: "Emily Davis",
+      weekOneWeight: "165 lbs",
+      currentWeight: "158 lbs",
+      measurementChange: "-2.5 inches",
       energyLevel: "8",
-      weeklyGoal: "Add 1 veggie per meal",
-      wins: "Felt more energized this week!"
+      weeklyGoal: "Meal prep Sundays",
+      wins: "No sugar cravings this week"
+    },
+    {
+      name: "Maria Rodriguez",
+      weekOneWeight: "195 lbs",
+      currentWeight: "187 lbs",
+      measurementChange: "-3.5 inches",
+      energyLevel: "7",
+      weeklyGoal: "Strength training 3x/week",
+      wins: "Hit new PR in deadlifts!"
+    },
+    {
+      name: "Lisa Chen",
+      weekOneWeight: "155 lbs",
+      currentWeight: "149 lbs",
+      measurementChange: "-2 inches",
+      energyLevel: "9",
+      weeklyGoal: "8 glasses of water daily",
+      wins: "Consistent energy all week"
+    },
+    {
+      name: "Amanda Taylor",
+      weekOneWeight: "175 lbs",
+      currentWeight: "168 lbs",
+      measurementChange: "-2.8 inches",
+      energyLevel: "8",
+      weeklyGoal: "Yoga 2x/week",
+      wins: "Better sleep quality"
     }
+  ]);
+
+  const [newEntry, setNewEntry] = useState({
+    name: "",
+    weekOneWeight: "",
+    currentWeight: "",
+    measurementChange: "",
+    energyLevel: "",
+    weeklyGoal: "",
+    wins: ""
+  });
+
+  // Sample weight tracking data for the chart
+  const weightData = [
+    { week: "Week 1", weight: 185 },
+    { week: "Week 2", weight: 183 },
+    { week: "Week 3", weight: 181 },
+    { week: "Week 4", weight: 180 },
+    { week: "Week 5", weight: 178 },
+    { week: "Week 6", weight: 176 }
   ];
+
+  const handleAddEntry = () => {
+    if (newEntry.name && newEntry.currentWeight) {
+      setProgressData([...progressData, newEntry]);
+      setNewEntry({
+        name: "",
+        weekOneWeight: "",
+        currentWeight: "",
+        measurementChange: "",
+        energyLevel: "",
+        weeklyGoal: "",
+        wins: ""
+      });
+    }
+  };
+
+  // Sort members by weight loss for leaderboard
+  const leaderboardData = [...progressData].sort((a, b) => {
+    const aLoss = parseInt(a.weekOneWeight) - parseInt(a.currentWeight);
+    const bLoss = parseInt(b.weekOneWeight) - parseInt(b.currentWeight);
+    return bLoss - aLoss;
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        {/* Weight Progress Chart */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-center">
-              Member Progress Tracker
+            <CardTitle>Weight Progress Over Time</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px]">
+              <ChartContainer
+                config={{
+                  weight: {
+                    theme: {
+                      light: "hsl(var(--primary))",
+                      dark: "hsl(var(--primary))"
+                    }
+                  }
+                }}
+              >
+                <LineChart data={weightData}>
+                  <XAxis dataKey="week" />
+                  <YAxis />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Line
+                    type="monotone"
+                    dataKey="weight"
+                    name="weight"
+                    strokeWidth={2}
+                    activeDot={{ r: 8 }}
+                  />
+                </LineChart>
+              </ChartContainer>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Leaderboard */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Member Leaderboard</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {leaderboardData.slice(0, 3).map((member, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-4 bg-card rounded-lg shadow-sm"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="text-2xl font-bold text-primary">#{index + 1}</div>
+                    <div>
+                      <div className="font-semibold">{member.name}</div>
+                      <div className="text-sm text-muted-foreground">
+                        Lost: {parseInt(member.weekOneWeight) - parseInt(member.currentWeight)} lbs
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-lg font-semibold text-primary">
+                    {member.currentWeight}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Progress Table */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex justify-between items-center">
+              <span>Member Progress Tracker</span>
+              <Button onClick={handleAddEntry} className="gap-2">
+                <PlusCircle className="h-4 w-4" />
+                Add Entry
+              </Button>
             </CardTitle>
           </CardHeader>
           <CardContent>
+            {/* New Entry Form */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <Input
+                placeholder="Name"
+                value={newEntry.name}
+                onChange={(e) => setNewEntry({ ...newEntry, name: e.target.value })}
+              />
+              <Input
+                placeholder="Current Weight"
+                value={newEntry.currentWeight}
+                onChange={(e) => setNewEntry({ ...newEntry, currentWeight: e.target.value })}
+              />
+              <Input
+                placeholder="Weekly Goal"
+                value={newEntry.weeklyGoal}
+                onChange={(e) => setNewEntry({ ...newEntry, weeklyGoal: e.target.value })}
+              />
+            </div>
+
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
